@@ -8,10 +8,23 @@
 
 <h1>URL 링크</h1>
 <ul>
-    <li><a th:href="@{/hello}">basic url</a></li>
-    <li><a th:href="@{/hello(param1=${param1}, param2=${param2})}">hello query param</a></li>
-    <li><a th:href="@{/hello/{param1}/{param2}(param1=${param1}, param2=${param2})}">path variable</a></li>
-    <li><a th:href="@{/hello/{param1}(param1=${param1}, param2=${param2})}">path variable + query parameter</a></li>
+    <li><a th:href="@{https://www.google.com}">구글로 이동</a></li>
+
+    <li><a th:href="@{/}">메인으로 이동</a></li>
+    <li><a th:href="@{/basic/basic-text}">텍스트 출력 기본으로 이동</a></li>
+
+    <li><a th:href="@{https://www.google.com/search(q=${param1})}">
+        구글에 penguin 검색 (https://www.google.com/search?q=penguin)</a></li>
+
+    <li><a th:href="@{/basic(page=${param1}, size=${param2})}">
+        쿼리 파라미터(/basic?page=penguin&size=12345)</a></li>
+
+    <li><a th:href="@{/good/{page}/{size}(a=${param1}, size=${param2})}">
+        경로 변수(/good/penguin/12345)</a></li>
+
+    <li><a th:href="@{/perfect/{name}(name=${param1}, size=${param2})}">
+        경로 변수 + 쿼리 파라미터(/perfect/penguin?size=12345)</a></li>
 </ul>
+
 </body>
 </html>
