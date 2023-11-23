@@ -20,17 +20,17 @@ public class BasicController {
 
     @GetMapping("/text-basic")
     public String textBasic(Model model) {
-        model.addAttribute("data", "Hello Spring!");
+        model.addAttribute("modelData", "반갑습니다");
         return "basic/text-basic";
     }
 
     @GetMapping("/text-unescaped")
     public String textUnescaped(Model model) {
-        model.addAttribute("data", "Hello <b>Spring!!</b>");
+        model.addAttribute("modelData", "Hello <b>Spring!!</b>");
         return "basic/text-unescaped";
     }
 
-    @GetMapping("/variable")
+   /* @GetMapping("/variable")
     public String variable(Model model) {
         User userA = new User("userA", 10);
         User userB = new User("userB", 20);
@@ -48,7 +48,7 @@ public class BasicController {
         model.addAttribute("userMap", map);
 
         return "basic/variable";
-    }
+    }*/
 
     @GetMapping("/basic-objects")
     public String basicObjects(HttpSession session) {
@@ -71,21 +71,21 @@ public class BasicController {
 
     @GetMapping("/link")
     public String link(Model model) {
-        model.addAttribute("param1", "data1");
-        model.addAttribute("param2", "data2");
+        model.addAttribute("param1", "penguin");
+        model.addAttribute("param2", "12345");
         return "basic/link";
     }
 
     @GetMapping("/literal")
     public String literal(Model model) {
-        model.addAttribute("data", "Spring!");
+        model.addAttribute("data", "반가워요");
         return "basic/literal";
     }
 
     @GetMapping("/operation")
     public String operation(Model model) {
         model.addAttribute("nullData", null);
-        model.addAttribute("data", "Spring!");
+        model.addAttribute("data", "데이터 있음!!");
         return "basic/operation";
     }
 
@@ -144,4 +144,39 @@ public class BasicController {
             this.age = age;
         }
     }
+
+    @Data
+    static class Penguin {
+        private String name;
+        private int weight;
+
+        public Penguin(String name, int weight) {
+            this.name = name;
+            this.weight = weight;
+        }
+    }
+
+    @GetMapping("/variable")
+    public String variable(Model model) {
+        Penguin gentoo = new Penguin("젠투 펭귄", 10);
+        Penguin emperor = new Penguin("황제 펭귄", 20);
+        Penguin galapagos = new Penguin("갈라파고스 펭귄", 30);
+
+        List<Penguin> penguins = new ArrayList<>();
+        penguins.add(gentoo);
+        penguins.add(emperor);
+        penguins.add(galapagos);
+
+        Map<String, Penguin> map = new HashMap<>();
+        map.put("젠투 펭귄", gentoo);
+        map.put("황제 펭귄", emperor);
+        map.put("갈라파고스 펭귄", galapagos);
+
+        model.addAttribute("penguin", gentoo);
+        model.addAttribute("penguins", penguins);
+        model.addAttribute("penguinMap", map);
+
+        return "basic/variable";
+    }
+
 }
