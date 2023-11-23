@@ -7,22 +7,24 @@
 <body>
 
 <h1>예시</h1>
-<span th:text="${data}">html data</span>
+<span th:text="${modelData}">HTML 데이터</span>
 
-<h1>1. 표준 HTML 주석</h1>
+<h2>1. 표준 HTML 주석</h2>
 <!--
-<span th:text="${data}">html data</span> -->
+<span th:text="${modelData}">html data</span> -->
 
-<h1>2. 타임리프 파서 주석 (거의 이 기능을 많이 사용함)</h1>
-<!--/* [[${data}]] */-->
+<h2>2. 타임리프 파서 주석 (거의 이 기능을 많이 사용함)</h2>
+<!--/* [[${modelData}]] */-->
+<!--/*
+<span th:text="${modelData}">html data</span> */-->
 
-<!--/*-->
-<span th:text="${data}">html data</span>
+<!--/*--> 여기 모두 생략됨
+<span th:text="${modelData}">HTML 데이터</span>
 <!--*/-->
 
-<h1>3. 타임리프 프로토타입 주석</h1>
+<h2>3. 타임리프 프로토타입 주석</h2>
 <!--/*/
-<span th:text="${data}">html data</span> /*/-->
+<span th:text="${modelData}">html data</span> /*/-->
 
 </body>
 </html>
