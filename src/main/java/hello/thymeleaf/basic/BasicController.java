@@ -108,7 +108,7 @@ public class BasicController {
 
     @GetMapping("/comments")
     public String comments(Model model) {
-        model.addAttribute("data", "Spring!!");
+        model.addAttribute("modelData", "예시용 데이터입니다!");
         return "basic/comments";
     }
 
@@ -120,9 +120,18 @@ public class BasicController {
 
     @GetMapping("/javascript")
     public String javascript(Model model) {
-        model.addAttribute("user", new User("userA", 10));
-        addUsers(model);
+        model.addAttribute("penguin", new Penguin("gentoo", 15));
+        addPenguin(model);
         return "basic/javascript";
+    }
+
+    private void addPenguin(Model model) {
+        List<Penguin> penguins = new ArrayList<>();
+        penguins.add(new Penguin("chinstrap", 10));
+        penguins.add(new Penguin("emperor", 20));
+        penguins.add(new Penguin("galapagos", 30));
+
+        model.addAttribute("penguins", penguins);
     }
 
     private void addUsers(Model model) {
