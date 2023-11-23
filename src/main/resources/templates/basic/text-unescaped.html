@@ -7,13 +7,17 @@
 <body>
 <h1>text vs utext</h1>
 <ul>
-    <li>th:text = <span th:text="${data}"></span></li>
-    <li>th:utext = <span th:utext="${data}"></span></li>
+    <li>th:text는? <span th:text="${modelData}"></span></li>
+    <li>th:utext는? <span th:utext="${modelData}"></span></li>
 </ul>
+
 <h1><span th:inline="none">[[...]] vs [(...)]</span></h1>
 <ul>
-    <li><span th:inline="none">[[...]] = </span>[[${data}]]</li>
-    <li><span th:inline="none">[(...)] = </span>[(${data})]</li>
+    <li><span th:inline="none">none 처리 한 경우 ----> [[${modelData}]]</span></li>
+    <li><span>그냥 ----> [[${modelData}]]</span></li>
+
+    <li><span th:inline="none">none 처리 한 경우 ----> [(${modelData})]</span></li>
+    <li><span>그냥 ----> [(${modelData})]</span></li>
 </ul>
 </body>
 </html>
